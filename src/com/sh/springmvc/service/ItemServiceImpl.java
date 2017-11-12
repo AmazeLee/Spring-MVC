@@ -25,4 +25,16 @@ public class ItemServiceImpl implements ItemService {
 	public List<Items> selectItemsList(){
 		return itemsMapper.selectByExampleWithBLOBs(null);
 	}
+	
+	//通过id查询商品
+	@Override
+	public Items queryItemById(Integer id) {
+		return itemsMapper.selectByPrimaryKey(id);
+	}
+
+	//通过id更新商品
+	@Override
+	public void updateItemById(Items item) {
+		itemsMapper.updateByPrimaryKeySelective(item);
+	}
 }
